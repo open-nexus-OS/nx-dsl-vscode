@@ -4,7 +4,14 @@
   "scopeName": "source.nx",
   "patterns": [
     { "include": "#comments" },
-    { "include": "#strings" }
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#constants" },
+    { "include": "#sigils" },
+    { "include": "#keywords" },
+    { "include": "#operators" },
+    { "include": "#modifier-calls" },
+    { "include": "#type-names" }
   ],
   "repository": {
     "comments": {
@@ -21,6 +28,102 @@
           "match": "\\\\."
         }
       ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.fixed.nx",
+          "match": "\\b\\d+\\.\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.nx",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "constants": {
+      "name": "constant.language.boolean.nx",
+      "match": "\\b(true|false)\\b"
+    },
+    "sigils": {
+      "patterns": [
+        {
+          "name": "variable.language.state.nx",
+          "match": "\\$state\\b"
+        },
+        {
+          "name": "variable.language.props.nx",
+          "match": "\\$props\\b"
+        },
+        {
+          "name": "keyword.other.effect.nx",
+          "match": "@effect\\b"
+        },
+        {
+          "name": "support.function.i18n.nx",
+          "match": "@t\\b"
+        },
+        {
+          "name": "storage.modifier.persist.nx",
+          "match": "@persist\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.other.declaration.nx",
+          "match": "\\b(Store|Event|reduce|Page|Component|Routes|Window|Query|props|import)\\b"
+        },
+        {
+          "name": "keyword.control.nx",
+          "match": "\\b(if|else|match|for|in|on|navigate)\\b"
+        },
+        {
+          "name": "keyword.control.action.nx",
+          "match": "\\b(dispatch|emit)\\b"
+        },
+        {
+          "name": "keyword.other.nx",
+          "match": "\\b(svc|device|state|let)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.arrow.nx",
+          "match": "=>|->"
+        },
+        {
+          "name": "keyword.operator.path.nx",
+          "match": "::"
+        },
+        {
+          "name": "keyword.operator.comparison.nx",
+          "match": "==|!=|<=|>=|<|>"
+        },
+        {
+          "name": "keyword.operator.assignment.nx",
+          "match": "\\+=|-=|="
+        },
+        {
+          "name": "keyword.operator.logical.nx",
+          "match": "&&|\\|\\||!"
+        },
+        {
+          "name": "keyword.operator.arithmetic.nx",
+          "match": "\\+|-|\\*|/|%"
+        }
+      ]
+    },
+    "modifier-calls": {
+      "name": "entity.name.function.modifier.nx",
+      "match": "(?<=\\.)[a-zA-Z_][a-zA-Z0-9_]*(?=\\s*\\()"
+    },
+    "type-names": {
+      "name": "entity.name.type.nx",
+      "match": "\\b[A-Z][A-Za-z0-9_]*\\b"
     }
   }
 }

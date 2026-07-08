@@ -37,7 +37,17 @@
         "scopeName": "source.nx",
         "path": "./syntaxes/nx.tmLanguage.json"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Nexus DSL",
+      "properties": {
+        "nxDsl.executablePath": {
+          "type": "string",
+          "default": "nx-dsl",
+          "description": "Path to the nx-dsl CLI binary (build it from open-nexus-OS: cargo build -p nx-dsl). Used for formatting and diagnostics."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
