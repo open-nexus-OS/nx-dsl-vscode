@@ -38,6 +38,12 @@
         "path": "./syntaxes/nx.tmLanguage.json"
       }
     ],
+    "snippets": [
+      {
+        "language": "nx",
+        "path": "./snippets/nx.code-snippets"
+      }
+    ],
     "configuration": {
       "title": "Nexus DSL",
       "properties": {

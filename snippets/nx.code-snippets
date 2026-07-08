@@ -1,0 +1,68 @@
+{
+  "Store": {
+    "prefix": "store",
+    "body": ["Store ${1:Name} {", "\t${2:field}: ${3:Type} = ${4:default},", "}"],
+    "description": "Declare a Store"
+  },
+  "Event": {
+    "prefix": "event",
+    "body": ["Event ${1:Name} {", "\t${2:Case},", "}"],
+    "description": "Declare an Event"
+  },
+  "reduce": {
+    "prefix": "reduce",
+    "body": ["reduce ${1:EventName} {", "\t${2:Case} => ${3:state.field = expr},", "}"],
+    "description": "Declare a reducer for an Event"
+  },
+  "@effect on": {
+    "prefix": "effect",
+    "body": ["@effect on ${1:EventName} {", "\t${2}", "}"],
+    "description": "Declare an effect handler"
+  },
+  "Page": {
+    "prefix": "page",
+    "body": ["Page ${1:Name} {", "\t${2:Stack} {", "\t\t${3}", "\t}", "}"],
+    "description": "Declare a Page"
+  },
+  "Component": {
+    "prefix": "component",
+    "body": [
+      "Component ${1:Name} {",
+      "\tprops: { ${2:field}: ${3:Type} }",
+      "\t${4:Stack} {",
+      "\t\t${5}",
+      "\t}",
+      "}"
+    ],
+    "description": "Declare a Component"
+  },
+  "Routes": {
+    "prefix": "routes",
+    "body": ["Routes {", "\t\"${1:/path}\" -> ${2:PageName};", "}"],
+    "description": "Declare Routes"
+  },
+  "Query": {
+    "prefix": "query",
+    "body": [
+      "Query ${1:Name} on ${2:Store} {",
+      "\tparams: { ${3:field}: ${4:Type}, },",
+      "\twhere ${5:field} == ${6:expr},",
+      "\torderBy ${7:field} ${8:asc},",
+      "\tlimit ${9:20},",
+      "}"
+    ],
+    "description": "Declare a Query"
+  },
+  "Window": {
+    "prefix": "window",
+    "body": [
+      "Window {",
+      "\tstyle: ${1|titlebar,hiddenTitlebar,plain|},",
+      "\tmode: ${2|auto,freeform,fullscreen|},",
+      "\tlevel: ${3|normal,desktop,overlay|},",
+      "\tresizable: ${4|true,false|},",
+      "}"
+    ],
+    "description": "Declare the app's Window intent"
+  }
+}

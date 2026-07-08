@@ -1,5 +1,7 @@
 import * as vscode from 'vscode';
 import { formatSource, lintSource, NxDslCliError } from './nxDslCli';
+import { createHoverProvider } from './hoverProvider';
+import { createCompletionItemProvider } from './completionProvider';
 
 const NX_LANGUAGE = 'nx';
 
@@ -48,6 +50,8 @@ export function activate(context: vscode.ExtensionContext) {
         }
       },
     }),
+    vscode.languages.registerHoverProvider(NX_LANGUAGE, createHoverProvider(getCliPath)),
+    vscode.languages.registerCompletionItemProvider(NX_LANGUAGE, createCompletionItemProvider(), '.'),
   );
 
   async function updateDiagnostics(document: vscode.TextDocument) {

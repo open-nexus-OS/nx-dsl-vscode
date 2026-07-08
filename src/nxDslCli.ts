@@ -57,6 +57,19 @@ export async function formatSource(cliPath: string, source: string): Promise<str
   });
 }
 
+const explainCache = new Map<string, string>();
+
+/** Explains a diagnostic code via `nx-dsl explain` (result is stable, so it's cached per code). */
+export async function explainCode(cliPath: string, code: string): Promise<string | undefined> {
+  const cached = explainCache.get(code);
+  if (cached !== undefined) return cached;
+  const { code: exitCode, stdout } = await run(cliPath, ['explain', code]);
+  if (exitCode !== 0) return undefined;
+  const text = stdout.trim().replace(new RegExp(`^${code}:\\s*`), '');
+  explainCache.set(code, text);
+  return text;
+}
+
 /** Lints `source` via `nx-dsl lint` and returns the parsed diagnostics. */
 export async function lintSource(cliPath: string, source: string): Promise<NxDiagnostic[]> {
   return withTempNxFile(source, async (tempPath) => {
