@@ -16,9 +16,6 @@
     "dsl",
     "nexus"
   ],
-  "activationEvents": [
-    "onLanguage:nx"
-  ],
   "main": "./out/extension.js",
   "contributes": {
     "languages": [
@@ -55,6 +52,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jenningschaefer/nx-dsl-vscode.git"
+    "url": "https://github.com/open-nexus-OS/nx-dsl-vscode.git"
   }
 }
