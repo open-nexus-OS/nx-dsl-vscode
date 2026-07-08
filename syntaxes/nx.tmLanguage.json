@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Nexus DSL",
+  "scopeName": "source.nx",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" }
+  ],
+  "repository": {
+    "comments": {
+      "name": "comment.line.double-slash.nx",
+      "match": "//.*$"
+    },
+    "strings": {
+      "name": "string.quoted.double.nx",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.nx",
+          "match": "\\\\."
+        }
+      ]
+    }
+  }
+}

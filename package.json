@@ -1,0 +1,60 @@
+{
+  "name": "nx-dsl",
+  "displayName": "Nexus DSL (.nx) Language Support",
+  "description": "Syntax highlighting, formatting and linting for the .nx DSL.",
+  "version": "0.0.1",
+  "publisher": "REPLACE_ME_PUBLISHER",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "nx",
+    "dsl",
+    "nexus"
+  ],
+  "activationEvents": [
+    "onLanguage:nx"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "nx",
+        "aliases": [
+          "Nexus DSL",
+          "nx"
+        ],
+        "extensions": [
+          ".nx"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nx",
+        "scopeName": "source.nx",
+        "path": "./syntaxes/nx.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.24.0",
+    "typescript": "^5.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jenningschaefer/nx-dsl-vscode.git"
+  }
+}
